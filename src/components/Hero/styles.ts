@@ -115,14 +115,13 @@ export const Container = styled.section`
       object-position: center;
       filter: saturate(0.82) contrast(1.04);
     }
-    .portrait-label, .portrait-caption {
+    .portrait-label {
       display: block;
       color: var(--lavender);
       font-size: 1rem;
       letter-spacing: 0.15rem;
       padding: 0.7rem 0.2rem 0.2rem;
     }
-    .portrait-caption { text-align: right; color: var(--muted); padding: 0.7rem 0.2rem 0; }
     .portrait-frame:after {
       content: "";
       position: absolute;

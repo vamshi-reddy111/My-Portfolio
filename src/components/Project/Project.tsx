@@ -35,13 +35,8 @@ const additionalProjects = [
   {
     title: "SocioSphere – Social Media Platform",
     description: "Developed a social media application using the MERN stack, bringing together a modern web interface and database-backed functionality.",
-    technologies: ["MongoDB", "Express.js", "React.js", "Node.js"]
-  },
-  {
-    title: "ReadMeGen – README Auto Generator",
-    description: "Built a web application that analyzes public GitHub repositories and generates concise README files with a live Markdown preview.",
-    technologies: ["React", "Vite", "Express", "Gemini"],
-    repositoryUrl: "https://github.com/vamshi-reddy111/ReadMeGen"
+    technologies: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    repositoryUrl: null
   }
 ];
 
@@ -106,6 +101,51 @@ function CrystalVisualization() {
   );
 }
 
+function ReadMeGenShowcase() {
+  const technologies = ["React", "Vite", "JavaScript", "Node.js", "Express.js", "GitHub REST API", "Gemini AI", "Markdown"];
+  return (
+    <article className="featured-project readmegen-project">
+      <div className="project-meta"><span className="category">AI DEVELOPER TOOLS, FULL-STACK &amp; GENERATIVE AI</span><span className="status">ILLUSTRATIVE PREVIEW</span></div>
+      <h3>ReadMeGen — AI-Powered GitHub Repository Analyzer &amp; README Generator</h3>
+      <p className="description">A full-stack application that analyzes GitHub repositories, extracts project metadata, identifies technologies and dependencies, and generates structured README documentation using Google Gemini AI.</p>
+      <div className="project-content">
+        <div className="architecture">
+          <h4>SYSTEM WORKFLOW</h4>
+          <Pipeline items={["GitHub Repository URL", "GitHub REST API", "Repository Analysis", "Technology & Dependency Detection", "Gemini AI", "Markdown README"]} />
+          <h4 className="secondary-heading">CORE CAPABILITIES</h4>
+          <ul className="capabilities">
+            <li>Repository metadata extraction</li>
+            <li>Technology and dependency detection</li>
+            <li>AI-powered README generation</li>
+            <li>Markdown preview, copy, and download</li>
+          </ul>
+        </div>
+        <div className="visual readmegen-visual">
+          <div className="visual-heading"><span>APPLICATION PREVIEW</span><strong>MOCKUP</strong></div>
+          <div className="mock-window">
+            <label htmlFor="readmegen-url">GitHub repository URL</label>
+            <div className="mock-input-row">
+              <input id="readmegen-url" type="url" value="https://github.com/owner/repository" readOnly aria-describedby="readmegen-note" />
+              <button type="button" aria-label="Generate README preview">Generate README</button>
+            </div>
+            <p className="mock-note" id="readmegen-note">Preview only — no repository is connected.</p>
+            <div className="mock-progress"><span><i /> Analyzing repository structure</span><b>72%</b></div>
+            <div className="mock-divider" />
+            <span className="mock-label">DETECTED TECHNOLOGIES</span>
+            <div className="mock-chips"><span>React</span><span>Node.js</span><span>Express</span><span>JavaScript</span></div>
+            <span className="mock-label">GENERATED README MARKDOWN</span>
+            <pre className="markdown-preview">{`# Repository README\n\n## Overview\nA structured project overview\n\n## Tech Stack\nReact · Node.js · Express`}</pre>
+          </div>
+        </div>
+      </div>
+      <div className="project-bottom">
+        <div className="tags">{technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
+        <a className="repo-link" href="https://github.com/vamshi-reddy111/ReadMeGen" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+      </div>
+    </article>
+  );
+}
+
 function FeaturedProject({ project }: { project: typeof projects[number] }) {
   const [expanded, setExpanded] = useState(false);
   return (
@@ -134,7 +174,7 @@ export function Project() {
   return (
     <Container id="project">
       <div className="section-heading"><span>SELECTED WORK / 2026</span><h2>Featured Projects</h2><p>Research-driven systems at the intersection of machine learning, language, and structured data.</p></div>
-      <div className="featured-projects">{projects.map((project) => <ScrollAnimation animateIn="fadeInUp" key={project.key}><FeaturedProject project={project} /></ScrollAnimation>)}</div>
+      <div className="featured-projects">{projects.map((project) => <ScrollAnimation animateIn="fadeInUp" key={project.key}><FeaturedProject project={project} /></ScrollAnimation>)}<ScrollAnimation animateIn="fadeInUp"><ReadMeGenShowcase /></ScrollAnimation></div>
       <div className="additional-heading"><span>OTHER BUILDS</span><h3>More from the lab</h3></div>
       <div className="additional-projects">{additionalProjects.map((project) => <article className="additional-project" key={project.title}><div><h4>{project.title}</h4><p>{project.description}</p><div className="tags">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div></div>{project.repositoryUrl ? <a className="repo-link" href={project.repositoryUrl} target="_blank" rel="noopener noreferrer"><img src={githubIcon} alt="" /> Repository</a> : <span className="unavailable">Repository unavailable</span>}</article>)}</div>
     </Container>

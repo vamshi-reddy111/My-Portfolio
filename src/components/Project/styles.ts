@@ -55,6 +55,25 @@ export const Container = styled.section`
   .class-selector button, .view-selector button { padding: .7rem 1rem; border: 1px solid var(--line); border-radius: .3rem; background: transparent; color: var(--muted); font-family: var(--font-mono); font-size: 1.1rem; }
   .class-selector button.selected, .view-selector button.selected, .class-selector button:hover, .view-selector button:hover { border-color: var(--project-accent); color: var(--black); background: var(--project-accent); }
   .visual-note { margin: auto 0 0; padding-top: 1.5rem; color: var(--muted-subtle); font-size: 1.15rem; line-height: 1.5; }
+  .capabilities { display: grid; gap: 1rem; }
+  .capabilities li { position: relative; padding-left: 1.8rem; color: var(--muted); line-height: 1.5; }
+  .capabilities li:before { position: absolute; top: .65rem; left: 0; width: .55rem; height: .55rem; border-radius: 50%; background: var(--project-accent); box-shadow: 0 0 1rem var(--violet); content: ""; }
+  .readmegen-visual { min-height: 0; }
+  .mock-window { margin-top: 1.8rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: .8rem; background: rgba(18, 16, 27, .88); }
+  .mock-window label, .mock-label { display: block; color: var(--muted-subtle); font-family: var(--font-mono); font-size: 1rem; letter-spacing: .08em; text-transform: uppercase; }
+  .mock-input-row { display: flex; gap: .7rem; margin-top: .8rem; }
+  .mock-input-row input { min-width: 0; flex: 1; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: .35rem; color: var(--muted); background: var(--black); font-family: var(--font-mono); font-size: 1.05rem; }
+  .mock-input-row button { padding: .9rem 1rem; border: 1px solid var(--project-accent); border-radius: .35rem; color: var(--black); background: var(--project-accent); font-family: var(--font-mono); font-size: 1rem; white-space: nowrap; transition: background .2s, color .2s; }
+  .mock-input-row button:hover { color: var(--off-white); background: transparent; }
+  .mock-note { margin: .8rem 0 1.4rem; color: var(--muted-subtle); font-size: 1.05rem; }
+  .mock-progress { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; border: 1px solid var(--line); border-radius: .35rem; color: var(--muted); font-family: var(--font-mono); font-size: 1rem; }
+  .mock-progress span { display: flex; align-items: center; gap: .7rem; }
+  .mock-progress i { width: .7rem; height: .7rem; border-radius: 50%; background: var(--project-accent); box-shadow: 0 0 1rem var(--violet); }
+  .mock-progress b { color: var(--project-accent); font-weight: 400; }
+  .mock-divider { height: 1px; margin: 1.5rem 0; background: var(--line); }
+  .mock-chips { display: flex; flex-wrap: wrap; gap: .6rem; margin: .8rem 0 1.5rem; }
+  .mock-chips span { padding: .5rem .7rem; border: 1px solid var(--line-strong); border-radius: .3rem; color: var(--lavender); background: var(--glow); font-family: var(--font-mono); font-size: 1rem; }
+  .markdown-preview { margin: .8rem 0 0; padding: 1.1rem; border: 1px solid var(--line); border-radius: .35rem; color: var(--muted); background: var(--black); font-family: var(--font-mono); font-size: 1rem; line-height: 1.6; white-space: pre-wrap; }
   .lattice { width: 100%; height: 18rem; margin: 1rem 0; }
   .lattice path { fill: none; stroke: var(--violet); stroke-width: 1; }
   .lattice circle { fill: var(--project-accent); stroke: var(--lavender); stroke-width: 1; }
@@ -80,6 +99,6 @@ export const Container = styled.section`
   .unavailable { color: #666; font-size: 1.1rem; }
   @media (max-width: 1100px) { .project-content { grid-template-columns: minmax(0, 1.2fr) minmax(24rem, .8fr); } }
   @media (max-width: 800px) { .project-content { grid-template-columns: 1fr; } .featured-project:after { right: 10%; width: 12rem; } }
-  @media (max-width: 600px) { .project-meta, .project-bottom { align-items: flex-start; flex-direction: column; } .additional-projects { grid-template-columns: 1fr; } .pipeline-step b { display: none; } .pipeline-step { width: 100%; } .pipeline-step span { width: 100%; } .featured-project { border-radius: 1rem; } }
+  @media (max-width: 600px) { .project-meta, .project-bottom { align-items: flex-start; flex-direction: column; } .additional-projects { grid-template-columns: 1fr; } .pipeline-step b { display: none; } .pipeline-step { width: 100%; } .pipeline-step span { width: 100%; } .featured-project { border-radius: 1rem; } .mock-input-row { align-items: stretch; flex-direction: column; } }
   @media (prefers-reduced-motion: reduce) { .featured-project { transition: none; } .featured-project:hover { transform: none; } }
 `;

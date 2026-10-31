@@ -39,9 +39,7 @@ export function Hero() {
       <div className="hero-image">
         <ScrollAnimation animateIn="fadeInRight" delay={1000}>
           <div className="portrait-frame">
-            <span className="portrait-label">01 / PROFILE</span>
             <img src="/Images/profile.png" alt="Injam Vamshi Reddy" />
-            <span className="portrait-caption">BUILDING WITH CURIOSITY</span>
           </div>
         </ScrollAnimation>
       </div>

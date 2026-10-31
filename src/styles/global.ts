@@ -48,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
   body, input, textarea, button { font-family: var(--font-body); }
   h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.08; }
   p { line-height: 1.65; }
-  .eyebrow, .skill-line, .tech-list, .portrait-label, .portrait-caption, time { font-family: var(--font-mono); }
+  .eyebrow, .skill-line, .tech-list, .portrait-label, time { font-family: var(--font-mono); }
   body:before {
     content: "";
     position: fixed;

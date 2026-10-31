@@ -1,10 +1,23 @@
 import { Container } from "./styles";
 import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
 
-const skills = [
-  "Java", "C", "C++", "Python", "HTML", "CSS", "React.js",
-  "MySQL", "MongoDB", "TensorFlow", "Scikit-learn", "Pandas",
-  "NumPy", "Git", "GitHub", "VS Code", "Jupyter Notebook", "Postman"
+const skillGroups = [
+  {
+    name: "Languages",
+    skills: ["Java", "C", "C++", "Python"]
+  },
+  {
+    name: "Web Development",
+    skills: ["HTML", "CSS", "React.js"]
+  },
+  {
+    name: "Data & Machine Learning",
+    skills: ["MySQL", "MongoDB", "TensorFlow", "Scikit-learn", "Pandas", "NumPy"]
+  },
+  {
+    name: "Tools & Workflow",
+    skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Postman"]
+  }
 ];
 
 export function About() {
@@ -40,8 +53,15 @@ export function About() {
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeInLeft" delay={400}>
           <h3>Technical Skills</h3>
-          <div className="hard-skills">
-            {skills.map((skill) => <span className="skill" key={skill}>{skill}</span>)}
+          <div className="skill-groups">
+            {skillGroups.map((group) => (
+              <article className="skill-group" key={group.name}>
+                <h4>{group.name}</h4>
+                <div className="hard-skills">
+                  {group.skills.map((skill) => <span className="skill" key={skill}>{skill}</span>)}
+                </div>
+              </article>
+            ))}
           </div>
         </ScrollAnimation>
       </div>

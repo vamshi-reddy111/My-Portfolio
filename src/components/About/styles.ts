@@ -21,9 +21,10 @@ export const Container = styled.section`
     margin-top: 2rem;
     margin-bottom: 1.4rem;
     color: var(--violet);
+    font-size: 2rem;
   }
 
-  h4 { margin: 1rem 0; }
+  h4 { margin: 0 0 1.2rem; }
 
   p {
     max-width: 72rem;
@@ -33,32 +34,60 @@ export const Container = styled.section`
     margin: 0;
   }
 
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+    max-width: 82rem;
+  }
+
+  .skill-group {
+    padding: 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: .8rem;
+    background: linear-gradient(145deg, rgba(23, 20, 33, .85), rgba(18, 16, 27, .7));
+    transition: border-color .2s, transform .2s;
+    &:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+    h4 {
+      color: var(--off-white);
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+  }
+
   .hard-skills {
-    margin-top: 2rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: .7rem;
   }
 
   .skill {
     display: inline-block;
-    padding: 0.8rem 1.2rem;
+    padding: .55rem .8rem;
     border: 1px solid var(--line);
-    border-radius: 0.2rem;
+    border-radius: .35rem;
     font-family: var(--font-mono);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     letter-spacing: 0.02em;
     font-weight: 500;
     color: var(--muted);
     background: rgba(154, 108, 255, 0.05);
-    transition: border-color 0.25s, color 0.25s, transform 0.25s;
-    &:hover { border-color: var(--lavender); color: var(--off-white); transform: translateY(-2px); }
+    transition: border-color .2s, color .2s, background .2s;
+    &:hover { border-color: var(--lavender); color: var(--off-white); background: rgba(139, 92, 246, .12); }
   }
 
   @media (max-width: 960px) {
     display: block;
     text-align: center;
+    .skill-groups { margin-right: auto; margin-left: auto; }
     .hard-skills { justify-content: center; }
+  }
+
+  @media (max-width: 560px) {
+    .skill-groups { grid-template-columns: 1fr; }
   }
 `;

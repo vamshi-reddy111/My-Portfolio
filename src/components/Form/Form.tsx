@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react'
 import validator from 'validator'
 
 export function Form() {
-  const [state, handleSubmit] = useForm('xknkpqry')
+  const [state, handleSubmit] = useForm('xeaaldjz', {
+    endpoint: 'https://formspree.io/f/xeaaldjz',
+  })
   const [validEmail, setValidEmail] = useState(false)
   const [isHuman, setIsHuman] = useState(false)
   const [message, setMessage] = useState('')
@@ -45,8 +47,8 @@ export function Form() {
   }
   return (
     <Container>
-      <h2>Get in touch using the form</h2>
       <form onSubmit={handleSubmit}>
+        <input placeholder="Name" id="name" type="text" name="name" required />
         <input
           placeholder="Email"
           id="email"
@@ -57,10 +59,11 @@ export function Form() {
           }}
           required
         />
+        <input placeholder="Subject" id="subject" type="text" name="subject" required />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
         <textarea
           required
-          placeholder="Send a message to get started."
+          placeholder="Hi! Let's talk about..."
           id="message"
           name="message"
           onChange={(e) => {
@@ -72,6 +75,7 @@ export function Form() {
           field="message"
           errors={state.errors}
         />
+        <ValidationError prefix="Form" errors={state.errors} />
         <ReCAPTCHA
           sitekey="6Lfj9NYfAAAAAP8wPLtzrsSZeACIcGgwuEIRvbSg"
           onChange={(e) => {
@@ -82,7 +86,7 @@ export function Form() {
           type="submit"
           disabled={state.submitting || !validEmail || !message || !isHuman}
         >
-          Submit
+          {state.submitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
       <ToastContainer />
